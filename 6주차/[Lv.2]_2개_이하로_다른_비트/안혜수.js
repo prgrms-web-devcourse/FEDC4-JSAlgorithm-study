@@ -1,4 +1,4 @@
-unction solution(numbers) {
+function solution(numbers) {
     return numbers.map(x => {
         let bin = x.toString(2).split("").reverse();
         for(let i = 0; i<bin.length; i++){
