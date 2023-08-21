@@ -1,20 +1,9 @@
-function solution(numbers) {
-  var answer = [];
-  let c;
-  numbers.forEach((v) => {
-    if (v < 2 || v % 2 === 0) {
-      answer.push(v + 1);
-    } else {
-      let c = 2;
-      while (true) {
-        if ((v + 1) % (c * 2) === 0) {
-          c = c * 2;
-        } else {
-          break;
+unction solution(numbers) {
+    return numbers.map(x => {
+        let bin = x.toString(2).split("").reverse();
+        for(let i = 0; i<bin.length; i++){
+            if(bin[i]==='0')return x+Math.ceil(2**(i-1));
         }
-      }
-      answer.push(v + c / 2);
-    }
-  });
-  return answer;
+        return x+2**(bin.length-1);
+    })
 }
