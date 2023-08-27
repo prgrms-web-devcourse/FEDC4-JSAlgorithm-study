@@ -16,11 +16,7 @@ function solution(board) {
   }
 
   function getBoardValue(i, j) {
-    if (rowLen - 1 > i && i < 0) {
-      return 0;
-    }
-
-    if (colLen - 1 > j && j < 0) {
+    if (i < 0 || j < 0) {
       return 0;
     }
 
