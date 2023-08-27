@@ -5,22 +5,12 @@ function solution(board) {
 
   for (let i = 0; i < rowLen; i++) {
     for (let j = 0; j < colLen; j++) {
-      if (!board[i][j]) {
-        continue;
+      if (i > 0 && j > 0 && board[i][j]) {
+        board[i][j] = Math.min(board[i - 1][j], board[i][j - 1], board[i - 1][j - 1]) + 1;
       }
-
-      board[i][j] = Math.min(getBoardValue(i - 1, j), getBoardValue(i, j - 1), getBoardValue(i - 1, j - 1)) + 1;
 
       answer = Math.max(answer, board[i][j]);
     }
-  }
-
-  function getBoardValue(i, j) {
-    if (i < 0 || j < 0) {
-      return 0;
-    }
-
-    return board[i][j];
   }
 
   return answer ** 2;
