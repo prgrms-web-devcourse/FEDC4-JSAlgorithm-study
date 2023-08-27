@@ -12,19 +12,19 @@ function solution(board) {
       board[i][j] = Math.min(getBoardValue(i - 1, j), getBoardValue(i, j - 1), getBoardValue(i - 1, j - 1)) + 1;
 
       answer = Math.max(answer, board[i][j]);
-
-      function getBoardValue(i, j) {
-        if (rowLen - 1 > i && i < 0) {
-          return 0;
-        }
-
-        if (colLen - 1 > j && j < 0) {
-          return 0;
-        }
-
-        return board[i][j];
-      }
     }
+  }
+
+  function getBoardValue(i, j) {
+    if (rowLen - 1 > i && i < 0) {
+      return 0;
+    }
+
+    if (colLen - 1 > j && j < 0) {
+      return 0;
+    }
+
+    return board[i][j];
   }
 
   return answer ** 2;
